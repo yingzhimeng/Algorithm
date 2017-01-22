@@ -1,0 +1,31 @@
+Practice 2.1-4
+public class BinaryAdd {
+	public static int[] add(int[] A, int[] B){
+		int[] C=new int[A.length+1];
+		int temp1=0,temp2=0;
+		int i=0;
+		for(;i<A.length;i++){
+			temp1=temp2+A[i]+B[i];
+			if(temp1>=2){
+				temp2=1;
+				C[i]=temp1-2;
+			}else{
+				temp2=0;
+				C[i]=temp1;
+			}
+		}
+		C[i]=temp2;
+		
+		return C;
+	}
+	
+	public static void main(String[] args){
+		int[] A={1,1,1,1,1,1,1};
+		int[] B={1,1,1,1,1,1,0};
+		int[] C={0,0,0,0,0,0,0,0};
+		C=add(A,B);
+		for(int temp:C){
+			System.out.print(temp+" ");
+		}
+	}
+}
