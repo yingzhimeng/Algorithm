@@ -1,0 +1,103 @@
+TreeSearch: java
+
+package Tree;
+
+import java.util.Stack;
+
+public class BinaryTree {
+	public class TreeNode{
+		int data;
+		TreeNode lchild;
+		TreeNode rchild;
+		private boolean isFirst;
+	}
+	private TreeNode root;
+	
+	//recursive preorder tree walk
+	public void preOrder(TreeNode current){
+		if(current!=null){
+			System.out.print(current.data);
+			preOrder(current.lchild);
+			preOrder(current.rchild);
+		}
+	}
+	
+	//non-recursive preorder tree walk
+	public void nonRecursivePreOrder(){
+		Stack<TreeNode> stack =new Stack<TreeNode>();
+		TreeNode current;
+		current=root;
+		while(current!=null||!stack.empty()){
+			if(current!=null){
+				System.out.print(current.data);
+				stack.push(current);
+				current=current.lchild;
+			}else{
+				current=stack.pop();
+				current=current.rchild;
+			}
+		}
+	}
+	
+	
+	//recursive inorder tree walk
+	public void inOrder(TreeNode current){
+		if(current!=null){
+			inOrder(current.lchild);
+			System.out.print(current.data);
+			inOrder(current.rchild);
+		}
+	}
+	
+	//non-recursive inorder tree walk
+	public void nonRecursiveInOrder(){
+		Stack<TreeNode> stack=new Stack<TreeNode>();
+		TreeNode current;
+		current=root;
+		while(current!=null||!stack.empty()){
+			if(current!=null){
+				stack.push(current);
+				current=current.lchild;
+			}else{
+				current=stack.pop();
+				System.out.print(current.data);
+				current=current.rchild;
+			}
+		}
+	}
+	
+	
+	
+	//后序遍历
+	public void postOrder(TreeNode current){
+		if(current!=null){
+			postOrder(current.lchild);
+			postOrder(current.rchild);
+			System.out.print(current.data);
+		}
+	}
+	
+	//非递归后续遍历
+	public void notRecursivePostOrder(){
+		Stack<TreeNode> stack=new Stack<TreeNode>();
+		TreeNode current;
+		current=root;
+		while(current!=null||!stack.isEmpty()){
+			if(current!=null){
+				current.isFirst=true;
+				stack.push(current);
+				current=current.lchild;
+			}else{
+				current=stack.pop();
+				if(current.isFirst){//第一次出现在栈顶
+					current.isFirst=false; 
+					stack.push(current);
+					current=current.rchild;
+				}else{//第二次出现在栈顶
+					System.out.print(current.data);
+					current=null;
+				}
+			}
+		}
+	}
+}
