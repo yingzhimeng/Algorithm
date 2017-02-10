@@ -52,3 +52,81 @@ public class SelectionSort {
 		}
 	}
 }
+
+快速排序(QuickSort)：C++
+时间复杂度:平均：O(nlogn),最坏：O(n^2)
+#include<iostream>
+#include<string>
+#include<algorithm>
+#include<vector>
+
+using namespace std;
+
+
+int partition1(int data[], int lo, int hi){
+	int pivot = data[lo];
+	int i = lo;
+	int j = hi;
+	while (i < j){
+		while (data[i] <= pivot){
+			i++;
+		}
+
+		while (data[j]>pivot){
+			j--;
+		}
+		if (i < j){
+			int temp = data[i];
+			data[i] = data[j];
+			data[j] = temp;
+		}
+		
+	}
+	int temp = data[j];
+	data[j] = pivot;
+	data[lo] = temp;
+	return j;
+}
+
+void QuickSort1(int data[], int lo, int hi){
+	if (lo < hi){
+		int k = partition1(data, lo, hi);
+		QuickSort1(data, lo, k - 1);
+		QuickSort1(data, k + 1, hi);
+	}
+	
+}
+
+
+int partition2(int data[], int lo, int hi){
+	int pivot = data[hi];
+	int i = lo - 1;
+	for (int j = lo; j < hi; j++){
+		if (data[j] <= pivot){
+			i++;
+			int temp = data[j];
+			data[j] = data[i];
+			data[i] = temp;
+		}
+	}
+	data[hi] = data[i + 1];
+	data[i + 1] = pivot;
+	return i + 1;
+}
+
+void QuickSort(int data[],int lo, int hi){
+	if (lo < hi){
+		int k = partition2(data, lo, hi);
+		QuickSort(data, lo, k - 1);
+		QuickSort(data, k + 1, hi);
+	}
+}
+int main(){
+	int data[] = { 5, 4, 3, 2, 1 };
+	QuickSort(data, 0, 4);
+	for (int i = 0; i < 5; i++){
+		cout << data[i] << " ";
+	}
+	getchar();
+}
+
