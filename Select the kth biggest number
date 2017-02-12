@@ -1,5 +1,9 @@
+参考资料：
 http://noalgo.info/category/ds
 http://blog.csdn.net/acdreamers/article/details/44656295
+数据结构与算法分析 C++ 描述（data structures and algoritm anylisis in c++ ）作者:Mark Allen Weiss
+
+
 
 #include<iostream>
 #include<string.h>
