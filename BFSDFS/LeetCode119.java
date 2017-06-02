@@ -8,6 +8,8 @@
  * }
  */
 // Using BFS
+// Time complexity O(n)
+//Space complexity O(n)
 public class Solution {
     public int maxDepth(TreeNode root) {
         if(root == null) return 0;
@@ -31,6 +33,8 @@ public class Solution {
 
 
 //DFS
+// Time complexity O(n)
+//Space complexity O(n)
 public int maxDepth(TreeNode root) {
         if(root==null){
             return 0;
