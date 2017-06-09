@@ -47,5 +47,31 @@ public class BTIT
 
 // Using recursive
 import java.util.*;
-public class TreeNode{  int val;  TreeNode left;  TreeNode right;  TreeNode(int val){    this.val = val;  }}
-public class BTIT{  public static List<Integer> list = new ArrayList<Integer>();    public static void inorder(TreeNode root){    if(root == null) return;    inorder(root.left);    list.add(root.val);    inorder(root.right);      }    public static void main(String[] args)  {    TreeNode root = new TreeNode(1);    root.left = new TreeNode(2);    root.right = new TreeNode(3);    root.left.left = new TreeNode(4);    root.left.right = new TreeNode(5);            inorder(root);    for(Integer i : list){      System.out.print(i + "  ");    }  }}
+public class TreeNode{ 
+  int val;  
+  TreeNode left;  
+  TreeNode right;  
+  TreeNode(int val){   
+    this.val = val;  
+  }
+}
+public class BTIT{ 
+  public static List<Integer> list = new ArrayList<Integer>();  
+  public static void inorder(TreeNode root){   
+    if(root == null) return;   
+    inorder(root.left); 
+    list.add(root.val);   
+    inorder(root.right);   
+  }   
+  public static void main(String[] args)  {  
+    TreeNode root = new TreeNode(1); 
+    root.left = new TreeNode(2);  
+    root.right = new TreeNode(3);   
+    root.left.left = new TreeNode(4);   
+    root.left.right = new TreeNode(5);      
+    inorder(root);   
+    for(Integer i : list){    
+      System.out.print(i + "  ");  
+    }  
+  }
+}
