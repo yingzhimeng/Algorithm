@@ -1,1 +1,7 @@
 https://www.youtube.com/watch?v=ZBHKZF5w4YU
+
+A Segment Tree is a binary tree and the element of this array will be the leaf of that binary tree.
+Query intervals compare with Given intervals
+1. Patial overlap ---> check left and right
+2. Total overlap ---> return minimum
+3. No overlap ---> return Integer.MAX_VALUE
